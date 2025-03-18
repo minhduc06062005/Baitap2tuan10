@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính Diện Tích Hình Chữ Nhật</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        input {
+            margin: 10px 0;
+            padding: 8px;
+            width: 100%;
+        }
+        button {
+            padding: 10px;
+            background: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #218838;
+        }
+        #result {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Tính Diện Tích Hình Chữ Nhật</h2>
+        <input type="number" id="length" placeholder="Nhập chiều dài">
+        <input type="number" id="width" placeholder="Nhập chiều rộng">
+        <button onclick="calculateRectangleArea()">Tính Diện Tích</button>
+        <p id="result"></p>
+    </div>
+    
+    <script>
+        function calculateRectangleArea() {
+            let length = document.getElementById("length").value;
+            let width = document.getElementById("width").value;
+            
+            length = parseFloat(length);
+            width = parseFloat(width);
+            
+            if (isNaN(length) || isNaN(width) || length <= 0 || width <= 0) {
+                document.getElementById("result").innerText = "Vui lòng nhập các giá trị hợp lệ (số dương).";
+                document.getElementById("result").style.color = "red";
+                return;
+            }
+            
+            let area = length * width;
+            document.getElementById("result").innerText = "Diện tích của hình chữ nhật là: " + area;
+            document.getElementById("result").style.color = "black";
+        }
+    </script>
+</body>
+</html>
